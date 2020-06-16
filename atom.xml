@@ -65,6 +65,35 @@
   </entry>
   
   <entry>
+    <title>Hello wmh</title>
+    <link href="http://yoursite.com/2020/02/20/wjp/"/>
+    <id>http://yoursite.com/2020/02/20/wjp/</id>
+    <published>2020-02-20T03:19:57.000Z</published>
+    <updated>2020-06-16T10:45:10.107Z</updated>
+    
+    <content type="html"><![CDATA[<p>##引言<br>你好,温金平<br>###其他<br>好啊</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;##引言&lt;br&gt;你好,温金平&lt;br&gt;###其他&lt;br&gt;好啊&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="wjp" scheme="http://yoursite.com/categories/wjp/"/>
+    
+      <category term="www" scheme="http://yoursite.com/categories/wjp/www/"/>
+    
+    
+      <category term="-教程 -个人" scheme="http://yoursite.com/tags/%E6%95%99%E7%A8%8B-%E4%B8%AA%E4%BA%BA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://yoursite.com/2020/02/19/hello-world/"/>
     <id>http://yoursite.com/2020/02/19/hello-world/</id>
