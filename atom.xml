@@ -44,4 +44,32 @@
     
   </entry>
   
+  <entry>
+    <title>整数拆分</title>
+    <link href="http://yoursite.com/2020/02/20/%E7%8A%B6%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <id>http://yoursite.com/2020/02/20/%E7%8A%B6%E6%80%81%E8%A7%84%E5%88%92/</id>
+    <published>2020-02-20T03:19:57.000Z</published>
+    <updated>2020-07-30T04:21:05.037Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="整数拆分解题总结"><a href="#整数拆分解题总结" class="headerlink" title="整数拆分解题总结"></a>整数拆分解题总结</h2><p>题目：给定一个正整数 n，将其拆分为至少两个正整数的和，并使这些整数的乘积最大化。 返回你可以获得的最大乘积。</p><p>题目分析：对于正整数n，当n&gt;=2时，可以拆分为至少两个正整数，假如n拆分的第一个数为k，那么还剩下n-k，n-k可以选择再次拆分或者不拆。由于每个正整数拆分对应的最大乘积取决于更小整数拆分对应的最大乘积，所以可以先求小于n的整数的最大乘积，然后一步步求到n的最大乘积，这里可以用数组来记忆化存储每一个整数的最大乘积，因此可以用动态规划求解。</p><p>解题方案：创建一个大小为n+1的数组dp，dp[k]代表k拆分对应的最大乘积，由于0和1无法拆分，所以dp[0]，dp[1]为0；<br>当i&gt;=2时，假设i拆分出来的第一个整数为j，那么有两种方法：</p><ul><li>将i拆分为j和i-j的和，i-j不再拆分，那么乘积为j*(i-j);</li><li>将i拆分为j和i-j的和，i-j选择再次拆分，i-j拆分的整数应该为最大乘积，所以乘积为j*dp[i-j];</li></ul><p>当j固定时，最大乘积dp[i]为Math.max(j<em>(i-j),j*dp[i-j]),由于j可以取值为1到 i-1；所以应该遍历每一个j，进而得到k最大乘积dp[k]；因此状态转移方程如下：<br>            dp[i]=Math.max(j</em>(i-j),j*dp[i-j])      1&lt;=j&lt;i;</p><p>代码如下</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> curMax = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">                curMax = Math.max(curMax, Math.max(j * (i - j), j * dp[i - j]));</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i] = curMax;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;整数拆分解题总结&quot;&gt;&lt;a href=&quot;#整数拆分解题总结&quot; class=&quot;headerlink&quot; title=&quot;整数拆分解题总结&quot;&gt;&lt;/a&gt;整数拆分解题总结&lt;/h2&gt;&lt;p&gt;题目：给定一个正整数 n，将其拆分为至少两个正整数的和，并使这些整数的乘积最大化。 返回你可
+      
+    
+    </summary>
+    
+    
+      <category term="算法笔记" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="动态规划" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+    
+      <category term="-动态规划" scheme="http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
 </feed>
